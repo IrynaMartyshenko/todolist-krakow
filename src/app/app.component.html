@@ -1,0 +1,48 @@
+<div class="todolist-container" >
+  <div class="todolist-title"> 
+    <span>
+      Todo App
+    </span>
+   
+  </div> 
+
+  <div class="todolist-items-container"  >
+
+     <div class="new-todoitem-container">
+      <input 
+        class="new-todoitem-input"
+        placeholder="Add New Todoitem"
+        type="text"
+        id="name" 
+        name="name"
+        required
+        minlength="2" 
+        maxlength="100" 
+        size="10" 
+        [(ngModel)]="newItem.value" 
+        (keyup.enter)="addNewItem()"> 
+
+         <div class="add-todoitem-button" (click) = addNewItem()>+</div>
+
+    </div>
+    <ul> 
+      <li *ngFor="let item of items" [ngClass]="{'todolist-item-checked': item.checked}" >
+        <div class=" ">
+          <div class="flex"><input type="checkbox" (click)="onClick(item)">  {{item.value}}</div>
+        <div class="flex2">
+          <button class="delete-btn" (click)="Delete(item)">
+           <mat-icon>delete_outline</mat-icon> 
+          </button></div>
+        </div>
+        
+        </li>
+    </ul>
+    
+    <!-- <ul>
+      <li>todosth</li>
+      <li>todosth</li>
+    </ul> -->
+  </div> 
+  
+</div>
+     
